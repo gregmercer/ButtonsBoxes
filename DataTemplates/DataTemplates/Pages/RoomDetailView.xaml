@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:layout="clr-namespace:DataTemplates;assembly=DataTemplates"
+    xmlns:converter="clr-namespace:DataTemplates.Converters;assembly=DataTemplates"
+    x:Class="DataTemplates.Pages.RoomDetailView">
+
+    <ContentView.Resources>
+      <ResourceDictionary>
+        <converter:DebugConverter x:Key="debugConverter"/>
+      </ResourceDictionary>
+    </ContentView.Resources>
+    
+    <ContentView.Content>
+        <StackLayout HorizontalOptions="Start">
+            <Label Text="{Binding Name, Converter={StaticResource debugConverter}}" Margin="15,15,0,0" />
+        </StackLayout>
+    </ContentView.Content>
+    
+</ContentView>

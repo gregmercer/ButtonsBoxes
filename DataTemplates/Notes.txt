@@ -1,0 +1,82 @@
+
+Pages
+- HomePage 
+	Contains tabs for RoomsPage and DigestPage
+- DigestPage
+- RoomsPage
+	Grid 
+	  ListView
+	  	ItemSource = RoomsViewModel.Rooms
+  	    ItemTemplate = roomsDataTemplate
+  	      Index (Label, not visible)
+  	      Name (Label)
+  	      TimeSlotsButtonView (Layout View)
+	Displays list of Rooms as list items
+	Each list item (a Room) displays a list of timeslots with state of available, unavailable, selected, or unselected
+- RoomDetailPage
+	Displays the Rooms timeslots with state of available, unavailable, selected, or unselected
+
+ViewModels
+- RoomsViewModel
+	Rooms
+	  List of RoomViewModel(s) 
+    SelectedRoom
+      The currently selected Room (RoomViewModel)
+    Position
+      Index into list of Room(s)
+	List of Selected TimeSlotViewModels
+- RoomViewModel
+	Index
+	Name
+	TimeSlots
+	  List of timeslot strings
+- TimeSlotViewModel
+	State: Selected (bool)
+	State: Available (bool)
+
+Views
+- TimeSlotsButtonView : Layout<View>
+	TimeSlotsSourceProperty (bindable property)
+	  foreach timeslot
+	    creates a Button
+	      each Button setups a Clicked handler
+	      	the Clicked handler calls the ToogleTimeSlotCommand on the RoomsViewModel
+
+
+Models
+- Room
+	Id
+	Name
+	List of TimeSlots
+- TimeSlot
+	State: Selected (bool)
+	State: Available (bool)
+
+...
+
+User Action:
+	User opens App, displaying View:HomePage
+App: 
+	Initializes Services
+	Creates DigestViewModel and RoomsViewModel
+	Sets MainPage to View:HomePage
+View: HomePage
+	Loads tabs containing View: DigestPage and View: RoomsPage
+ViewModel: RoomsViewModel
+
+
+
+
+...
+
+User Action: 
+	User clicks on a timeslot.
+View: Timeslot Button
+	Sends Command:ToggleTimeSlot to ViewModel:RoomsViewModel
+ViewModel: RoomsViewModel
+	1. Toogles State:Selected of TimeSlotViewModel(s).
+	2. Updates list of selected TimeSlotViewModel(s). 
+Model:
+
+
+

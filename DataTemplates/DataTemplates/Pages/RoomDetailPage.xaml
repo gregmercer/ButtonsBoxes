@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+    xmlns:local="clr-namespace:DataTemplates.Pages"
+    xmlns:converter="clr-namespace:DataTemplates.Converters;assembly=DataTemplates"
+    x:Class="DataTemplates.Pages.RoomDetailPage">
+
+    <ContentPage.Resources>
+      <ResourceDictionary>
+        <converter:DebugConverter x:Key="debugConverter"/>
+      </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <controls:CarouselViewControl x:Name="Carousel"
+                                      Orientation="Horizontal"
+                                      InterPageSpacing="10"
+                                      Position="{Binding Position, Converter={StaticResource debugConverter}}"
+                                      ItemsSource="{Binding Rooms}"
+                                      VerticalOptions="FillAndExpand"
+                                      HorizontalOptions="FillAndExpand">
+            
+            <controls:CarouselViewControl.ItemTemplate>
+                <DataTemplate>
+                    <local:RoomDetailView />
+                </DataTemplate>
+            </controls:CarouselViewControl.ItemTemplate>
+        </controls:CarouselViewControl>
+
+    </Grid>
+  
+</ContentPage>
