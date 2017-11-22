@@ -1,11 +1,12 @@
-Data Template
-=============
+ButtonsBoxes Data Templates
+=============================
+Shows the scrolling performance difference on Droid from using Buttons vs Boxes in a ListView. Buttons and Boxes are created within two different cs-based Data Templates. 
 
-This sample demonstrates creating a `DataTemplate` to specify the appearance of data being displayed by a `ListView`.
 
-For more information about the sample see [Data Templates](http://developer.xamarin.com/guides/xamarin-forms/templates/data-templates/).
+Originally based on Xamarin Form Sample Data Template 
+========================================================
 
-Author
-------
+[Xamarin Form Sample Data Templates](http://github.com/xamarin/xamarin-forms-samples/tree/master/Templates/DataTemplates).
 
-David Britch
+
+
