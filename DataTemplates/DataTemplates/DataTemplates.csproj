@@ -35,8 +35,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="App.cs" />
     <Compile Include="LayoutData.cs" />
-    <Compile Include="TimeSlotsButtonView.cs" />
-    <Compile Include="TimeSlotsBoxView.cs" />
     <Compile Include="Converters\DebugConverter.cs" />
     <Compile Include="ViewModels\RoomsViewModel.cs" />
     <Compile Include="Model\Room.cs" />
@@ -55,6 +53,8 @@
     <Compile Include="ViewModels\RoomViewModel.cs" />
     <Compile Include="ViewModels\TimeSlotViewModel.cs" />
     <Compile Include="Views\TimeSlotButton.cs" />
+    <Compile Include="Views\TimeSlotsBoxLayout.cs" />
+    <Compile Include="Views\TimeSlotsButtonLayout.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>

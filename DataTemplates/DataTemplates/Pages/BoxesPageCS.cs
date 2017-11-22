@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
+
 using Xamarin.Forms;
+
+using DataTemplates.Views;
 
 namespace DataTemplates.Pages
 {
@@ -32,9 +35,9 @@ namespace DataTemplates.Pages
                 grid.Children.Add(indexLabel, 0, 1, 0, 1);
                 grid.Children.Add(nameLabel, 0, 1, 0, 1);
 
-                var timeSlotView = new TimeSlotsBoxView(indexLabel);
-                timeSlotView.SetBinding(TimeSlotsBoxView.TimeSlotsSourceProperty, "TimeSlots");
-                grid.Children.Add(timeSlotView, 0, 3, 1, 2);
+                var timeSlotLayout = new TimeSlotsBoxLayout();
+                timeSlotLayout.SetBinding(TimeSlotsBoxLayout.TimeSlotsSourceProperty, "TimeSlots");
+                grid.Children.Add(timeSlotLayout, 0, 3, 1, 2);
 
                 return new ViewCell
                 {

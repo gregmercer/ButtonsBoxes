@@ -7,27 +7,24 @@ using XFShapeView;
 using DataTemplates.ViewModels;
 using DataTemplates.Views;
 
-namespace DataTemplates
+namespace DataTemplates.Views
 {
-    public class TimeSlotsButtonView : Layout<View>
+    public class TimeSlotsButtonLayout : Layout<View>
     {
         Dictionary<Size, LayoutData> layoutDataCache = new Dictionary<Size, LayoutData>();
 
-        private Label IndexLabel { get; set; }
-
-        public TimeSlotsButtonView(Label indexLabel)
+        public TimeSlotsButtonLayout()
         {
-            IndexLabel = indexLabel;
         }
 
         public static readonly BindableProperty TimeSlotsSourceProperty = BindableProperty.Create(
             propertyName: "TimeSlotsSource",
             returnType: typeof(IList<TimeSlotViewModel>),
-            declaringType: typeof(TimeSlotsButtonView),
+            declaringType: typeof(TimeSlotsButtonLayout),
             defaultValue: new List<TimeSlotViewModel>(),
             propertyChanged: (bindable, oldvalue, newvalue) =>
             {
-                TimeSlotsButtonView tsView = bindable as TimeSlotsButtonView;
+                TimeSlotsButtonLayout tsLayout = bindable as TimeSlotsButtonLayout;
                  
                 IList<TimeSlotViewModel> timeSlotViewModels = newvalue as IList<TimeSlotViewModel>;
                 foreach (TimeSlotViewModel timeSlotViewModel in timeSlotViewModels)
@@ -65,7 +62,7 @@ namespace DataTemplates
                         //App.RoomsViewModel.Position = Int32.Parse(indexLabel.Text);
                     };
 
-                    tsView.Children.Add(timeSlotButton);
+                    tsLayout.Children.Add(timeSlotButton);
 
                     //
                     // Button Approach - End

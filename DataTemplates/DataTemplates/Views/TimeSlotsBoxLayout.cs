@@ -6,27 +6,24 @@ using XFShapeView;
 
 using DataTemplates.ViewModels;
 
-namespace DataTemplates
+namespace DataTemplates.Views
 {
-    public class TimeSlotsBoxView : Layout<View>
+    public class TimeSlotsBoxLayout : Layout<View>
     {
         Dictionary<Size, LayoutData> layoutDataCache = new Dictionary<Size, LayoutData>();
 
-        private Label IndexLabel { get; set; }
-
-        public TimeSlotsBoxView(Label indexLabel)
+        public TimeSlotsBoxLayout()
         {
-            IndexLabel = indexLabel;
         }
 
         public static readonly BindableProperty TimeSlotsSourceProperty = BindableProperty.Create(
             propertyName: "TimeSlotsSource",
             returnType: typeof(IList<TimeSlotViewModel>),
-            declaringType: typeof(TimeSlotsButtonView),
+            declaringType: typeof(TimeSlotsBoxLayout),
             defaultValue: new List<TimeSlotViewModel>(),
             propertyChanged: (bindable, oldvalue, newvalue) =>
             {
-                TimeSlotsBoxView tsView = bindable as TimeSlotsBoxView;
+                TimeSlotsBoxLayout tsLayout = bindable as TimeSlotsBoxLayout;
                 
                 /*
 
