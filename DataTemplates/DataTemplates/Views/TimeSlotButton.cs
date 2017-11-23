@@ -18,6 +18,10 @@ namespace DataTemplates.Views
             propertyChanged: (bindable, oldvalue, newvalue) =>
             {
                 TimeSlotButton timeSlotButton = bindable as TimeSlotButton;
+                if (timeSlotButton == null)
+                {
+                    return;
+                }
 
                 Boolean selected = (Boolean)newvalue;
 

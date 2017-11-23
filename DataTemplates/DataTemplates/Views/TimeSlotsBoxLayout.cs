@@ -25,10 +25,8 @@ namespace DataTemplates.Views
             {
                 TimeSlotsBoxLayout tsLayout = bindable as TimeSlotsBoxLayout;
                 
-                /*
-
-                IList<string> timeSlotTimes = newvalue as IList<string>;
-                foreach (string timeSlotTime in timeSlotTimes)
+                IList<TimeSlotViewModel> timeSlotViewModels = newvalue as IList<TimeSlotViewModel>;
+                foreach (TimeSlotViewModel timeSlotViewModel in timeSlotViewModels)
                 {
                     //
                     // ShapeView Box Approach - Begin
@@ -36,7 +34,7 @@ namespace DataTemplates.Views
 
                     var timeSlotLabel = new Label
                     {
-                        Text = timeSlotTime,
+                        Text = timeSlotViewModel.StartTime,
                         TextColor = Color.Green,
                         FontSize = 14.0,
                         FontAttributes = FontAttributes.Bold,
@@ -46,10 +44,10 @@ namespace DataTemplates.Views
                         HorizontalTextAlignment = TextAlignment.Center,
                     };
 
-                    var box = new ShapeView
+                    TimeSlotBox timeSlotBox = new TimeSlotBox
                     {
                         Content = timeSlotLabel,
-                        BindingContext = tsView.IndexLabel,
+                        BindingContext = timeSlotViewModel,
                         ShapeType = ShapeType.Box,
                         WidthRequest = 60.0,
                         HeightRequest = 40.0,
@@ -60,13 +58,20 @@ namespace DataTemplates.Views
                         HorizontalOptions = LayoutOptions.Center,
                         VerticalOptions = LayoutOptions.Center,
                     };
+                    timeSlotBox.SetBinding(TimeSlotBox.SelectedProperty, "Selected");
+                    timeSlotViewModel.TimeSlotBox = timeSlotBox;
 
                     var boxTap = new TapGestureRecognizer();
                     boxTap.Tapped += (s, e) =>
                     {
-                        ShapeView timeSlotBox = s as ShapeView;
+                        TimeSlotBox tsBox = s as TimeSlotBox;
                         var timeSlot = timeSlotBox.Content as Label;
 
+                        TimeSlotViewModel timeslotViewModel = tsBox.BindingContext as TimeSlotViewModel;
+
+                        App.RoomsViewModel.ToggleTimeSlotCommand.Execute(timeslotViewModel);
+
+                        /*
                         if (timeSlot.BackgroundColor == Color.Green)
                         {
                             timeSlot.BackgroundColor = Color.White;
@@ -90,18 +95,18 @@ namespace DataTemplates.Views
 
                         Label indexLabel = timeSlot.BindingContext as Label;
                         App.RoomsViewModel.Position = Int32.Parse(indexLabel.Text);
-                    };
-                    box.GestureRecognizers.Add(boxTap);
+                        */
 
-                    tsView.Children.Add(box);
+                    };
+                    timeSlotBox.GestureRecognizers.Add(boxTap);
+
+                    tsLayout.Children.Add(timeSlotBox);
 
                     //
                     // ShapeView Box Approach - End
                     //
 
                 }
-
-                */
 
             }
         );

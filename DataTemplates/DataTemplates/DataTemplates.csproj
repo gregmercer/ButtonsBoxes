@@ -55,6 +55,7 @@
     <Compile Include="Views\TimeSlotButton.cs" />
     <Compile Include="Views\TimeSlotsBoxLayout.cs" />
     <Compile Include="Views\TimeSlotsButtonLayout.cs" />
+    <Compile Include="Views\TimeSlotBox.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>

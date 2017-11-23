@@ -16,6 +16,7 @@ namespace DataTemplates.ViewModels
         public RoomViewModel RoomViewModel { get; set; }
 
         public TimeSlotButton TimeSlotButton { get; set; }
+        public TimeSlotBox TimeSlotBox { get; set; }
 
         Boolean selected = false;
         public Boolean Selected { 
