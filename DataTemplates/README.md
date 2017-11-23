@@ -8,24 +8,22 @@ Diagram of Classes
 ===================
 
 RoomsViewModel
-  Has a list of RoomViewModels
-  Raises a property changed on the TimeSlotViewModel Selected property.
+- Has a list of RoomViewModels
+- Raises a property changed on the TimeSlotViewModel Selected property.
 
 RoomViewModel 
-  Has a list a TimeSlotViewModels
+- Has a list a TimeSlotViewModels
 
 TimeSlotViewModel 
-  Has a a reference back to its RoomViewModel
+- Has a a reference back to its RoomViewModel
 
 TimeSlotButton (UI View)
-  Has a BindingContext to a TimeSlotViewModel
-  Has a SelectedProperty bound to the TimeSlotViewModel
-  Has a Clicked handler which sends a ToggleTimeSlotCommand to the RoomsViewModel, passing the TimeSlotViewModel
+- Has a BindingContext to a TimeSlotViewModel
+- Has a SelectedProperty bound to the TimeSlotViewModel
+- Has a Clicked handler which sends a ToggleTimeSlotCommand to the RoomsViewModel, passing the TimeSlotViewModel
 
 App
-  Has a property for the RoomsViewModel
-
-
+- Has a property for the RoomsViewModel
 
 Originally based on Xamarin Form Sample Data Template 
 ========================================================
