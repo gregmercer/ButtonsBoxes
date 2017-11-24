@@ -15,7 +15,7 @@ RoomViewModel
 - Has a list a TimeSlotViewModels
 
 TimeSlotViewModel 
-- Has a a reference back to its RoomViewModel
+- Has a reference back to its RoomViewModel
 
 TimeSlotButton (UI View)
 - Has a BindingContext to a TimeSlotViewModel
