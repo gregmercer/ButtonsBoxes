@@ -53,6 +53,7 @@ namespace DataTemplates.ViewModels
         {
             TimeSlotViewModel timeSlotViewModel = tsm as TimeSlotViewModel;
             RoomViewModel roomViewModel = timeSlotViewModel.RoomViewModel;
+            SelectedRoom = roomViewModel;
             var temp = timeSlotViewModel.Selected;
             timeSlotViewModel.Selected = !temp;
         }

@@ -17,6 +17,28 @@ namespace DataTemplates.Views
         {
         }
 
+        public static readonly BindableProperty ColumnSpacingProperty = BindableProperty.Create(
+            propertyName: "ColumnSpacing",
+            returnType: typeof(double),
+            declaringType: typeof(TimeSlotsButtonLayout),
+            defaultValue: 5.0,
+            propertyChanged: (bindable, oldvalue, newvalue) =>
+        {
+            ((TimeSlotsButtonLayout)bindable).InvalidateLayout();
+        }
+        );
+
+        public static readonly BindableProperty RowSpacingProperty = BindableProperty.Create(
+            propertyName: "RowSpacing",
+            returnType: typeof(double),
+            declaringType: typeof(TimeSlotsButtonLayout),
+            defaultValue: 5.0,
+            propertyChanged: (bindable, oldvalue, newvalue) =>
+        {
+            ((TimeSlotsButtonLayout)bindable).InvalidateLayout();
+        }
+        );
+
         public static readonly BindableProperty TimeSlotsSourceProperty = BindableProperty.Create(
             propertyName: "TimeSlotsSource",
             returnType: typeof(IList<TimeSlotViewModel>),
@@ -58,8 +80,6 @@ namespace DataTemplates.Views
                         TimeSlotViewModel timeslotViewModel = timeSlot.BindingContext as TimeSlotViewModel;
 
                         App.RoomsViewModel.ToggleTimeSlotCommand.Execute(timeslotViewModel);
-
-                        //App.RoomsViewModel.Position = Int32.Parse(indexLabel.Text);
                     };
 
                     tsLayout.Children.Add(timeSlotButton);
@@ -71,6 +91,32 @@ namespace DataTemplates.Views
                 }
             }
         );
+
+        public double ColumnSpacing
+        {
+            set { SetValue(ColumnSpacingProperty, value); }
+            get { return (double)GetValue(ColumnSpacingProperty); }
+        }
+
+        public double RowSpacing
+        {
+            set { SetValue(RowSpacingProperty, value); }
+            get { return (double)GetValue(RowSpacingProperty); }
+        }
+
+        protected override SizeRequest OnMeasure(double widthConstraint, double heightConstraint)
+        {
+            LayoutData layoutData = GetLayoutData(widthConstraint, heightConstraint);
+            if (layoutData.VisibleChildCount == 0)
+            {
+                return new SizeRequest();
+            }
+
+            Size totalSize = new Size(layoutData.CellSize.Width * layoutData.Columns + ColumnSpacing * (layoutData.Columns - 1),
+                                      layoutData.CellSize.Height * layoutData.Rows + RowSpacing * (layoutData.Rows - 1));
+
+            return new SizeRequest(totalSize);
+        }
 
         protected override void LayoutChildren(double x, double y, double width, double height)
         {
