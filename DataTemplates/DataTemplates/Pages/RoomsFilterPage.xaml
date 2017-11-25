@@ -2,9 +2,29 @@
 <t:SlideMenuView 
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
     xmlns:t="clr-namespace:SlideOverKit" 
     x:Class="DataTemplates.Pages.RoomsFilterPage">
 	<ContentPage.Content>
-        <Label Text="Rooms Filter Page goes here..." />
+        <StackLayout Spacing="10">  
+            <Label Text="Rooms Filter Page goes here..." />
+            <DatePicker VerticalOptions="CenterAndExpand" Date="{x:Static sys:DateTime.Now}">
+             <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
+             <DatePicker.MinimumDate>
+                <sys:DateTime x:FactoryMethod="Parse">
+                   <x:Arguments>
+                      <x:String>Jan 1 2017</x:String>
+                   </x:Arguments>
+                </sys:DateTime>
+             </DatePicker.MinimumDate>
+             <DatePicker.MaximumDate>
+                <sys:DateTime x:FactoryMethod="Parse">
+                   <x:Arguments>
+                      <x:String>Dec 31 2020</x:String>
+                   </x:Arguments>
+                </sys:DateTime>
+             </DatePicker.MaximumDate>
+            </DatePicker>
+        </StackLayout>
 	</ContentPage.Content>
 </t:SlideMenuView>

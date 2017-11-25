@@ -18,17 +18,18 @@ namespace DataTemplates.Pages
             this.IsFullScreen = true;
 
             // You must set WidthRequest in this case
-            this.WidthRequest = 250;
+            this.WidthRequest = 350;
 
             this.MenuOrientations = MenuOrientation.RightToLeft;
 
             // You must set BackgroundColor, 
             // and you cannot put another layout with background color cover the whole View
             // otherwise, it cannot be dragged on Android
-            this.BackgroundColor = Color.White;
+            this.BackgroundColor = Color.LightGray;
 
             // This is shadow view color, you can set a transparent color
-            this.BackgroundViewColor = Color.FromHex ("#CE766C");
+            //this.BackgroundViewColor = Color.FromHex ("#CE766C");
+            this.BackgroundViewColor = Color.Transparent;
         }
     }
 }

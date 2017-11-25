@@ -17,7 +17,21 @@ namespace DataTemplates.Pages
             Title = "Buttons";
             Icon = "csharp.png";
 
+            // Filter Toolbar Item
+
+            ToolbarItem toolbarItem = new ToolbarItem
+            { 
+                Text = "F", 
+                Command = ShowRoomsFilterPage,
+            };
+
+            this.ToolbarItems.Add(
+                toolbarItem
+            );
+
             this.SlideMenu = new RoomsFilterPage();
+
+            // Rooms DataTemplate
 
             var roomsDataTemplate = new DataTemplate(() => {
 
@@ -77,24 +91,6 @@ namespace DataTemplates.Pages
                 TextColor = Color.White,
             };
 
-            // Filter Button
-
-            Button filterButton = new Button
-            {
-                Text = "Filter",
-                Command = ShowRoomsFilterPage,
-                WidthRequest = 60.0,
-                HeightRequest = 40.0,
-                BorderWidth = 1,
-                BorderColor = Color.Green,
-                VerticalOptions = LayoutOptions.Start,
-                HorizontalOptions = LayoutOptions.Fill,
-                FontAttributes = FontAttributes.Bold,
-                FontSize = 11.0,
-                BackgroundColor = Color.Green,
-                TextColor = Color.White,
-            };
-
             Content = new StackLayout
             {
                 Padding = new Thickness(0, 20, 0, 0),
@@ -106,7 +102,6 @@ namespace DataTemplates.Pages
                     },
                     listView,
                     nextButton,
-                    filterButton,
                 }
             };
         }
