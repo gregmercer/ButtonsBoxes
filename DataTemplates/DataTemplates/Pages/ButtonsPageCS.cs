@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
+using SlideOverKit;
 
 using DataTemplates.Views;
 
 namespace DataTemplates.Pages
 {
-    public class ButtonsPageCS : ContentPage
+    public class ButtonsPageCS : MenuContainerPage
     {
         ListView listView = new ListView { };
 
@@ -15,6 +16,8 @@ namespace DataTemplates.Pages
         {
             Title = "Buttons";
             Icon = "csharp.png";
+
+            this.SlideMenu = new RoomsFilterPage();
 
             var roomsDataTemplate = new DataTemplate(() => {
 
@@ -47,6 +50,8 @@ namespace DataTemplates.Pages
 
             });
 
+            // Rooms ListView
+
             listView = new ListView 
             { 
                 ItemsSource = App.RoomsViewModel.Rooms,  
@@ -54,24 +59,40 @@ namespace DataTemplates.Pages
                 RowHeight = 150 
             };
 
+            // Next Button
+
             Button nextButton = new Button
             {
                 Text = "Next",
+                Command = GoToRoomDetailPage,
                 WidthRequest = 60.0,
                 HeightRequest = 40.0,
-                FontSize = 11.0,
                 BorderWidth = 1,
                 BorderColor = Color.Green,
                 VerticalOptions = LayoutOptions.Start,
                 HorizontalOptions = LayoutOptions.Fill,
                 FontAttributes = FontAttributes.Bold,
+                FontSize = 11.0,
                 BackgroundColor = Color.Green,
                 TextColor = Color.White,
             };
 
-            nextButton.Clicked += (sender, e) => 
+            // Filter Button
+
+            Button filterButton = new Button
             {
-                listView.Navigation.PushAsync(new RoomDetailPage());
+                Text = "Filter",
+                Command = ShowRoomsFilterPage,
+                WidthRequest = 60.0,
+                HeightRequest = 40.0,
+                BorderWidth = 1,
+                BorderColor = Color.Green,
+                VerticalOptions = LayoutOptions.Start,
+                HorizontalOptions = LayoutOptions.Fill,
+                FontAttributes = FontAttributes.Bold,
+                FontSize = 11.0,
+                BackgroundColor = Color.Green,
+                TextColor = Color.White,
             };
 
             Content = new StackLayout
@@ -84,9 +105,26 @@ namespace DataTemplates.Pages
                         HorizontalOptions = LayoutOptions.Center
                     },
                     listView,
-                    nextButton
+                    nextButton,
+                    filterButton,
                 }
             };
+        }
+
+        public Command ShowRoomsFilterPage {
+            get {
+                return new Command (() => {
+                    this.ShowMenu();
+                });
+            }
+        }
+
+        public Command GoToRoomDetailPage {
+            get {
+                return new Command (() => {
+                    Navigation.PushAsync(new RoomDetailPage());
+                });
+            }
         }
 
         protected override void OnAppearing()

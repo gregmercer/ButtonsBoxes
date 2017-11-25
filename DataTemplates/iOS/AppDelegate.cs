@@ -14,8 +14,9 @@ namespace DataTemplates.iOS
 	{
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
-			global::Xamarin.Forms.Forms.Init ();
+			global::Xamarin.Forms.Forms.Init();
 
+            SlideOverKit.iOS.SlideOverKit.Init();
             CarouselViewRenderer.Init();
             ShapeRenderer.Init();
 
