@@ -8,7 +8,7 @@
 	<ContentPage.Content>
         <StackLayout Spacing="10">  
             <Label Text="Find rooms on" Margin="15,35,0,5" />
-            <DatePicker HorizontalOptions="Start" Date="{x:Static sys:DateTime.Now}" MinimumDate="{x:Static sys:DateTime.Now}" Margin="15,0,0,0">
+            <DatePicker HorizontalOptions="Start" Date="{Binding OnDate}" MinimumDate="{x:Static sys:DateTime.Now}" Margin="15,0,0,0">
              <DatePicker.Format>ddd, MMM d, yyyy</DatePicker.Format>
              <DatePicker.MaximumDate>
                 <sys:DateTime x:FactoryMethod="Parse">

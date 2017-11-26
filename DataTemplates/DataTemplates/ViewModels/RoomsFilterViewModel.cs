@@ -25,15 +25,37 @@ namespace DataTemplates.ViewModels
             }
         }
 
+        private DateTime onDate = DateTime.Now;
+        public DateTime OnDate
+        {
+            get
+            {
+                return this.onDate;
+            }
+            set
+            {
+                this.onDate = value;
+            }
+        }
+
+        private TimeSpan startTime;
         public TimeSpan StartTime
         {
             get
             {
-                var dateTime = DateTime.Now;
-                return dateTime.TimeOfDay;
+                if (this.startTime.ToString() == "00:00:00") 
+                {
+                    var dateTime = DateTime.Now;
+                    return dateTime.TimeOfDay;
+                }
+                else
+                {
+                    return this.startTime;
+                }
             }
             set
             {
+                this.startTime = value;
             }
         }
 
