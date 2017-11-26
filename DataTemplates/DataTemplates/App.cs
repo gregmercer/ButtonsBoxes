@@ -10,10 +10,13 @@ namespace DataTemplates
 	public class App : Application
 	{
         public static RoomsViewModel RoomsViewModel { get; set; }
+        public static RoomsFilterViewModel RoomsFilterViewModel { get; set; }
 
 		public App ()
 		{
             RoomsViewModel = new RoomsViewModel();
+            RoomsFilterViewModel = new RoomsFilterViewModel();
+
             MainPage = new NavigationPage(new HomePageCS());
 		}
 

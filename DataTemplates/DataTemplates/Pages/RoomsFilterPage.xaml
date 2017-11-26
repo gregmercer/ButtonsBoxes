@@ -7,16 +7,9 @@
     x:Class="DataTemplates.Pages.RoomsFilterPage">
 	<ContentPage.Content>
         <StackLayout Spacing="10">  
-            <Label Text="Rooms Filter Page goes here..." />
-            <DatePicker VerticalOptions="CenterAndExpand" Date="{x:Static sys:DateTime.Now}">
-             <DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
-             <DatePicker.MinimumDate>
-                <sys:DateTime x:FactoryMethod="Parse">
-                   <x:Arguments>
-                      <x:String>Jan 1 2017</x:String>
-                   </x:Arguments>
-                </sys:DateTime>
-             </DatePicker.MinimumDate>
+            <Label Text="Find rooms on" Margin="15,35,0,5" />
+            <DatePicker HorizontalOptions="Start" Date="{x:Static sys:DateTime.Now}" MinimumDate="{x:Static sys:DateTime.Now}" Margin="15,0,0,0">
+             <DatePicker.Format>ddd, MMM d, yyyy</DatePicker.Format>
              <DatePicker.MaximumDate>
                 <sys:DateTime x:FactoryMethod="Parse">
                    <x:Arguments>
@@ -25,6 +18,16 @@
                 </sys:DateTime>
              </DatePicker.MaximumDate>
             </DatePicker>
+            <Label Text="Start time" Margin="15,15,0,5" />
+            <TimePicker Time="{Binding StartTime}" Margin="15,0,15,0" />
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button x:Name="OkButton" Text="OK" Command="DoOK" Grid.Row="0" Grid.Column="0" BackgroundColor="Green" TextColor="White" />
+                <Button x:Name="CancelButton" Text="Cancel" Command="DoCancel" Grid.Row="0" Grid.Column="1" BackgroundColor="Green" TextColor="White" />
+            </Grid>
         </StackLayout>
 	</ContentPage.Content>
 </t:SlideMenuView>

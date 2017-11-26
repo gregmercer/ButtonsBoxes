@@ -40,6 +40,9 @@ namespace DataTemplates.Pages
                 grid.RowDefinitions.Add(new RowDefinition { Height = 20 });
                 grid.RowDefinitions.Add(new RowDefinition { Height = 100 });
 
+                grid.RowSpacing = 5;
+                grid.ColumnSpacing = 10;
+
                 grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.5, GridUnitType.Star) });
                 grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.2, GridUnitType.Star) });
                 grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.3, GridUnitType.Star) });
@@ -54,6 +57,9 @@ namespace DataTemplates.Pages
                 grid.Children.Add(nameLabel, 0, 1, 0, 1);                  
 
                 var timeSlotsLayout = new TimeSlotsButtonLayout();
+                timeSlotsLayout.Padding = new Thickness(20);
+                timeSlotsLayout.WidthRequest = 300;
+                timeSlotsLayout.HorizontalOptions = LayoutOptions.Start;
                 timeSlotsLayout.SetBinding(TimeSlotsButtonLayout.TimeSlotsSourceProperty, "TimeSlots");
                 grid.Children.Add(timeSlotsLayout, 0, 3, 1, 2);
 
@@ -70,8 +76,10 @@ namespace DataTemplates.Pages
             { 
                 ItemsSource = App.RoomsViewModel.Rooms,  
                 ItemTemplate = roomsDataTemplate, 
-                RowHeight = 150 
+                RowHeight = 150,
+                SeparatorColor = Color.Transparent,
             };
+            listView.Margin = 10;
 
             // Next Button
 

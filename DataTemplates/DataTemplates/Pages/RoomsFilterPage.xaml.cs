@@ -12,6 +12,8 @@ namespace DataTemplates.Pages
         {
             InitializeComponent ();
 
+            BindingContext = App.RoomsFilterViewModel;
+
             // You must set IsFullScreen in this case, 
             // otherwise you need to set HeightRequest, 
             // just like the QuickInnerMenu sample
@@ -25,11 +27,29 @@ namespace DataTemplates.Pages
             // You must set BackgroundColor, 
             // and you cannot put another layout with background color cover the whole View
             // otherwise, it cannot be dragged on Android
-            this.BackgroundColor = Color.LightGray;
+            this.BackgroundColor = Color.FromRgb(220,220,220);
 
             // This is shadow view color, you can set a transparent color
             //this.BackgroundViewColor = Color.FromHex ("#CE766C");
             this.BackgroundViewColor = Color.Transparent;
+        }
+
+        public Command DoOK {
+            get {
+                return new Command (() => {
+                    var temp = 1;
+                    temp++;
+                });
+            }
+        }
+
+        public Command DoCancel {
+            get {
+                return new Command (() => {
+                    var temp = 1;
+                    temp++;
+                });
+            }
         }
     }
 }
