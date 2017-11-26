@@ -10,9 +10,11 @@ namespace DataTemplates.Pages
     {
         public RoomsFilterPage()
         {
-            InitializeComponent ();
+            InitializeComponent();
 
             BindingContext = App.RoomsFilterViewModel;
+
+            App.RoomsFilterViewModel.SlideMenu = this;
 
             // You must set IsFullScreen in this case, 
             // otherwise you need to set HeightRequest, 
@@ -32,24 +34,6 @@ namespace DataTemplates.Pages
             // This is shadow view color, you can set a transparent color
             //this.BackgroundViewColor = Color.FromHex ("#CE766C");
             this.BackgroundViewColor = Color.Transparent;
-        }
-
-        public Command DoOK {
-            get {
-                return new Command (() => {
-                    var temp = 1;
-                    temp++;
-                });
-            }
-        }
-
-        public Command DoCancel {
-            get {
-                return new Command (() => {
-                    var temp = 1;
-                    temp++;
-                });
-            }
         }
     }
 }

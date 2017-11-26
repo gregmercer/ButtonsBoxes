@@ -2,12 +2,27 @@
 
 using Xamarin.Forms;
 
+using SlideOverKit;
+
 namespace DataTemplates.ViewModels
 {
     public class RoomsFilterViewModel
     {
         public RoomsFilterViewModel()
         {
+        }
+
+        private SlideMenuView slideMenu = null;
+        public SlideMenuView SlideMenu
+        {
+            get
+            {
+                return this.slideMenu;
+            }
+            set
+            {
+                this.slideMenu = value;
+            }
         }
 
         public TimeSpan StartTime
@@ -22,12 +37,11 @@ namespace DataTemplates.ViewModels
             }
         }
 
-        /*
         public Command DoOK {
             get {
                 return new Command (() => {
-                    var temp = 1;
-                    temp++;
+                    MenuContainerPage menuContainerPage = this.slideMenu.Parent as MenuContainerPage;
+                    menuContainerPage.HideMenu();
                 });
             }
         }
@@ -35,11 +49,10 @@ namespace DataTemplates.ViewModels
         public Command DoCancel {
             get {
                 return new Command (() => {
-                    var temp = 1;
-                    temp++;
+                    MenuContainerPage menuContainerPage = this.slideMenu.Parent as MenuContainerPage;
+                    menuContainerPage.HideMenu();
                 });
             }
         }
-        */
     }
 }
