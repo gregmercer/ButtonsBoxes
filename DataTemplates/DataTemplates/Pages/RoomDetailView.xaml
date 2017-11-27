@@ -17,11 +17,20 @@
         <StackLayout HorizontalOptions="Start">
             <StackLayout.WidthRequest>
                 <OnPlatform x:TypeArguments="x:Double"
-                            iOS="300"
+                            iOS="350"
                             Android="250" />
             </StackLayout.WidthRequest>
             <Label Text="{Binding Name, Converter={StaticResource debugConverter}}" Margin="15,15,0,0" />
+            <Editor Text="{Binding MeetingTitle, Converter={StaticResource debugConverter}}" Margin="15,15,0,0" />
             <layout:TimeSlotsButtonLayout TimeSlotsSource="{Binding TimeSlots, Converter={StaticResource debugConverter}}" Padding="20" />
+            <Grid Margin="10,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button x:Name="OkButton" Text="OK" Grid.Row="0" Grid.Column="0" BackgroundColor="Green" TextColor="White" />
+                <Button x:Name="CancelButton" Text="Cancel" Grid.Row="0" Grid.Column="1" BackgroundColor="Green" TextColor="White" />
+            </Grid>
         </StackLayout>
     </ContentView.Content>
     

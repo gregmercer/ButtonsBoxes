@@ -38,9 +38,9 @@ namespace DataTemplates.Pages
                 var grid = new Grid();
 
                 grid.RowDefinitions.Add(new RowDefinition { Height = 20 });
-                grid.RowDefinitions.Add(new RowDefinition { Height = 100 });
+                grid.RowDefinitions.Add(new RowDefinition { Height = 120 });
 
-                grid.RowSpacing = 5;
+                grid.RowSpacing = 0;
                 grid.ColumnSpacing = 10;
 
                 grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(0.5, GridUnitType.Star) });
@@ -57,7 +57,7 @@ namespace DataTemplates.Pages
                 grid.Children.Add(nameLabel, 0, 1, 0, 1);                  
 
                 var timeSlotsLayout = new TimeSlotsButtonLayout();
-                timeSlotsLayout.Padding = new Thickness(20);
+                timeSlotsLayout.Padding = 20;
                 timeSlotsLayout.WidthRequest = 300;
                 timeSlotsLayout.HorizontalOptions = LayoutOptions.Start;
                 timeSlotsLayout.SetBinding(TimeSlotsButtonLayout.TimeSlotsSourceProperty, "TimeSlots");
@@ -102,6 +102,7 @@ namespace DataTemplates.Pages
             Content = new StackLayout
             {
                 Padding = new Thickness(0, 20, 0, 0),
+                WidthRequest = 300,
                 Children = {
                     new Label {
                         Text = "Buttons List",

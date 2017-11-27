@@ -10,17 +10,26 @@ using System.Collections.ObjectModel;
 
 namespace DataTemplates.ViewModels
 {
+    public enum BookRoomResults
+    {
+        Failed,
+        Success,
+    }
+
     public class RoomsViewModel : SimpleViewModel
     {
         public ICommand GetRoomsCommand { get; private set; }
         public ICommand ToggleTimeSlotCommand { get; private set; }
         public ICommand StartRoomBookingCommand { get; private set; }
+        public ICommand BookRoomCommand { get; private set; }
 
         public RoomsViewModel()
         {
             GetRoomsCommand = new Command(async () => await GetRooms());
 
             ToggleTimeSlotCommand = new Command((param) => ToggleTimeSlot(param));
+
+            BookRoomCommand = new Command((param) => BookRoom(param));
         }
 
         // Commands
@@ -56,6 +65,14 @@ namespace DataTemplates.ViewModels
             SelectedRoom = roomViewModel;
             var temp = timeSlotViewModel.Selected;
             timeSlotViewModel.Selected = !temp;
+        }
+
+        protected async Task BookRoom(object rvm)
+        {
+            RoomViewModel roomViewModel = rvm as RoomViewModel;
+            MessagingCenter.Send<RoomsViewModel, int>(this, "BookRoomResult", (int)BookRoomResults.Success);
+            var temp = 1;
+            temp++;
         }
 
         // Properties

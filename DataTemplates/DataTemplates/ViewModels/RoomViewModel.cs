@@ -2,11 +2,6 @@
 using System.Collections.Generic;
 using System.Windows.Input;
 
-using Xamarin.Forms;
-
-using DataTemplates.Model;
-using System.Threading.Tasks;
-
 namespace DataTemplates.ViewModels
 {
     public class RoomViewModel : SimpleViewModel
@@ -19,6 +14,8 @@ namespace DataTemplates.ViewModels
         {
             return Name;
         }
+
+        // Commands
 
         // Properties
 
@@ -37,6 +34,8 @@ namespace DataTemplates.ViewModels
                 RaisePropertyChanged();
             }
         }
+
+        public string MeetingTitle { get; set; }
 
         public IList<TimeSlotViewModel> TimeSlots { get; set; }
     }
