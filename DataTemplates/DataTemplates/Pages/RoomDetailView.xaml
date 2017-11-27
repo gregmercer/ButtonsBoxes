@@ -28,7 +28,7 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Button x:Name="OkButton" Text="OK" Grid.Row="0" Grid.Column="0" BackgroundColor="Green" TextColor="White" />
+                <Button x:Name="OkButton" Text="OK" Command="{Binding OkButton}" IsEnabled="{Binding EnableOkButton}" Grid.Row="0" Grid.Column="0" BackgroundColor="Green" TextColor="White" />
                 <Button x:Name="CancelButton" Text="Cancel" Grid.Row="0" Grid.Column="1" BackgroundColor="Green" TextColor="White" />
             </Grid>
         </StackLayout>

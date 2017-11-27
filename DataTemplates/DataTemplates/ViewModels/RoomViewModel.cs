@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace DataTemplates.ViewModels
 {
@@ -16,6 +17,14 @@ namespace DataTemplates.ViewModels
         }
 
         // Commands
+
+        public Command OkButton {
+            get {
+                return new Command (() => {
+                    App.RoomsViewModel.BookRoomCommand.Execute(this);
+                });
+            }
+        }
 
         // Properties
 
@@ -35,8 +44,47 @@ namespace DataTemplates.ViewModels
             }
         }
 
-        public string MeetingTitle { get; set; }
+        private string meetingTitle = "";
+        public string MeetingTitle 
+        { 
+            get
+            {
+                return this.meetingTitle; 
+            }
+            set
+            {
+                if (this.meetingTitle != value)
+                {
+                    this.meetingTitle = value;
+                    if (this.meetingTitle == string.Empty) 
+                    {
+                        EnableOkButton = false;
+                    }
+                    else 
+                    {
+                        EnableOkButton = true;
+                    }
+                }
+            }
+        }
 
         public IList<TimeSlotViewModel> TimeSlots { get; set; }
+
+        private bool enableOkButton = false;
+        public bool EnableOkButton 
+        {
+            get
+            {
+                return this.enableOkButton;
+            }
+            set
+            {
+                if (this.enableOkButton != value)
+                {
+                    this.enableOkButton = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
     }
 }

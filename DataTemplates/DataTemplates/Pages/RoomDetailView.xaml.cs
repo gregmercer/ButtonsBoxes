@@ -21,12 +21,6 @@ namespace DataTemplates.Pages
                 }
             });
 
-            OkButton.Clicked += (object sender, EventArgs e) => 
-            {   
-                RoomViewModel roomViewModel = BindingContext as RoomViewModel;
-                App.RoomsViewModel.BookRoomCommand.Execute(roomViewModel);
-            };
-
             CancelButton.Clicked += (object sender, EventArgs e) => 
             {   
                 App.Current.MainPage.Navigation.PopAsync();
