@@ -8872,6 +8872,9 @@ namespace DataTemplates.Droid
 			// aapt resource value: 0x7f0c000e
 			public const int CardView_Light = 2131492878;
 			
+			// aapt resource value: 0x7f0c019c
+			public const int GSBGoTheme = 2131493276;
+			
 			// aapt resource value: 0x7f0c002d
 			public const int Platform_AppCompat = 2131492909;
 			
