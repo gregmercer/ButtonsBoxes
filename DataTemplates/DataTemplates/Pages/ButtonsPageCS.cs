@@ -86,6 +86,7 @@ namespace DataTemplates.Pages
             Button nextButton = new Button
             {
                 Text = "Next",
+                BindingContext = App.RoomsViewModel,
                 Command = GoToRoomDetailPage,
                 WidthRequest = 60.0,
                 HeightRequest = 40.0,
@@ -98,6 +99,34 @@ namespace DataTemplates.Pages
                 BackgroundColor = Color.Green,
                 TextColor = Color.White,
             };
+            nextButton.SetBinding(Button.IsEnabledProperty, "EnableRoomDetailNextButton");
+
+            nextButton.Triggers.Add(new Trigger(typeof(Button))
+            {
+                Property = Button.IsEnabledProperty,
+                Value = true,
+                Setters =
+                {
+                    new Setter
+                    {
+                        Property = Button.BackgroundColorProperty,
+                        Value = "Green"
+                    }
+                }
+            });
+            nextButton.Triggers.Add(new Trigger(typeof(Button))
+            {
+                Property = Button.IsEnabledProperty,
+                Value = false,
+                Setters =
+                {
+                    new Setter
+                    {
+                        Property = Button.BackgroundColorProperty,
+                        Value = "LightGray"
+                    }
+                }
+            });
 
             Content = new StackLayout
             {

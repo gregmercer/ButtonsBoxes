@@ -26,9 +26,7 @@ namespace DataTemplates.ViewModels
         public RoomsViewModel()
         {
             GetRoomsCommand = new Command(async () => await GetRooms());
-
             ToggleTimeSlotCommand = new Command((param) => ToggleTimeSlot(param));
-
             BookRoomCommand = new Command((param) => BookRoom(param));
         }
 
@@ -36,6 +34,8 @@ namespace DataTemplates.ViewModels
 
         protected async Task GetRooms()
         {
+            EnableRoomDetailNextButton = false; 
+
             ObservableCollection<RoomViewModel> roomsList = new ObservableCollection<RoomViewModel>{};
 
             for (int index = 0; index < 100; index++)
@@ -65,6 +65,14 @@ namespace DataTemplates.ViewModels
             SelectedRoom = roomViewModel;
             var temp = timeSlotViewModel.Selected;
             timeSlotViewModel.Selected = !temp;
+            if (timeSlotViewModel.Selected) 
+            {
+                EnableRoomDetailNextButton = true;
+            }
+            else
+            {
+                EnableRoomDetailNextButton = false;    
+            }
         }
 
         protected async Task BookRoom(object rvm)
@@ -76,6 +84,23 @@ namespace DataTemplates.ViewModels
         }
 
         // Properties
+
+        private bool enableRoomDetailNextButton = false;
+        public bool EnableRoomDetailNextButton
+        {
+            get
+            {
+                return this.enableRoomDetailNextButton;
+            }
+            set
+            {
+                if (this.enableRoomDetailNextButton != value)
+                {
+                    this.enableRoomDetailNextButton = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
 
         public RoomViewModel SelectedRoom { set; get; }
 
