@@ -19,6 +19,7 @@ namespace DataTemplates.iOS
             SlideOverKit.iOS.SlideOverKit.Init();
             CarouselViewRenderer.Init();
             ShapeRenderer.Init();
+            ZXing.Net.Mobile.Forms.iOS.Platform.Init();
 
 			LoadApplication (new App ());
 

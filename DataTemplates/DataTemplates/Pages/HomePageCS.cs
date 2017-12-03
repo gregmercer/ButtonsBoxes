@@ -8,8 +8,9 @@ namespace DataTemplates.Pages
 		{
             Title = "GSBgo - Changing the World.";
 
-			Children.Add(new ButtonsPageCS ());
+            Children.Add(new ButtonsPageCS());
             Children.Add(new BoxesPageCS());
+            Children.Add(new CustomScanPage());
 		}
 	}
 }

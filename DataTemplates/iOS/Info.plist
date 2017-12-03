@@ -42,5 +42,7 @@
 	<string>DataTemplates</string>
 	<key>CFBundleIdentifier</key>
 	<string>edu.stanford.gsb.gsbgo</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Can we use the camera?</string>
 </dict>
 </plist>

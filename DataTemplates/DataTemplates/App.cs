@@ -3,6 +3,7 @@ using Xamarin.Forms.Xaml;
 
 using DataTemplates.ViewModels;
 using DataTemplates.Pages;
+using ZXing.Net.Mobile.Forms;
 
 [assembly:XamlCompilation (XamlCompilationOptions.Compile)]
 namespace DataTemplates
