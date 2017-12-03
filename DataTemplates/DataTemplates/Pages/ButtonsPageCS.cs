@@ -94,7 +94,7 @@ namespace DataTemplates.Pages
                 RowHeight = 150,
                 SeparatorColor = Color.Transparent,
             };
-            listView.Margin = 10;
+            listView.Margin = new Thickness(10);
 
             // Next Button
 
@@ -145,7 +145,7 @@ namespace DataTemplates.Pages
 
             Content = new StackLayout
             {
-                Padding = new Thickness(0, 20, 0, 0),
+                Padding = new Thickness(0, 0, 0, 0),
                 WidthRequest = 300,
                 Children = {
                     /*
@@ -153,7 +153,8 @@ namespace DataTemplates.Pages
                         Text = "Buttons List",
                         FontAttributes = FontAttributes.Bold,
                         HorizontalOptions = LayoutOptions.Center
-                    }, */
+                    }, 
+                    */
                     searchBar,
                     listView,
                     nextButton,

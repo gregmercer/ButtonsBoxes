@@ -6,7 +6,9 @@ namespace DataTemplates.Pages
 	{
 		public HomePageCS ()
 		{
-			Children.Add (new ButtonsPageCS ());
+            Title = "GSBgo - Changing the World.";
+
+			Children.Add(new ButtonsPageCS ());
             Children.Add(new BoxesPageCS());
 		}
 	}
