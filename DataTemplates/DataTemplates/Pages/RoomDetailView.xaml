@@ -21,7 +21,7 @@
                             Android="250" />
             </StackLayout.WidthRequest>
             <Label Text="{Binding Name, Converter={StaticResource debugConverter}}" Margin="15,15,0,0" />
-            <Editor Text="{Binding MeetingTitle, Converter={StaticResource debugConverter}}" Margin="15,15,0,0" />
+            <Entry x:Name="MeetingTitleEntry" Text="{Binding MeetingTitle, Converter={StaticResource debugConverter}}" Placeholder="Enter your meeting title here." Margin="15,15,0,0" />
             <layout:TimeSlotsButtonLayout TimeSlotsSource="{Binding TimeSlots, Converter={StaticResource debugConverter}}" Padding="20" />
             <Grid Margin="10,0,0,0">
                 <Grid.ColumnDefinitions>

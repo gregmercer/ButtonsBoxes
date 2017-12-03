@@ -13,6 +13,11 @@ namespace DataTemplates.Pages
         {
             InitializeComponent();
 
+            MessagingCenter.Subscribe<RoomDetailPage>(this, "MeetingTitleSetFocus", (sender) => 
+            {
+                MeetingTitleEntry.Focus();
+            });
+
             MessagingCenter.Subscribe<RoomsViewModel, int>(this, "BookRoomResult", (sender, arg) => 
             {
                 if (arg == (int)BookRoomResults.Success)

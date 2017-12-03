@@ -17,6 +17,21 @@ namespace DataTemplates.Pages
             Title = "Buttons";
             Icon = "csharp.png";
 
+            // SearchBar
+
+            SearchBar searchBar = new SearchBar
+            {
+                Placeholder = "Enter your search here.",
+            };
+            searchBar.TextChanged += (sender, e) => 
+            { 
+                return; 
+            };
+            searchBar.SearchButtonPressed += (sender, e) => 
+            { 
+                return; 
+            };
+
             // Filter Toolbar Item
 
             ToolbarItem toolbarItem = new ToolbarItem
@@ -133,11 +148,13 @@ namespace DataTemplates.Pages
                 Padding = new Thickness(0, 20, 0, 0),
                 WidthRequest = 300,
                 Children = {
+                    /*
                     new Label {
                         Text = "Buttons List",
                         FontAttributes = FontAttributes.Bold,
                         HorizontalOptions = LayoutOptions.Center
-                    },
+                    }, */
+                    searchBar,
                     listView,
                     nextButton,
                 }

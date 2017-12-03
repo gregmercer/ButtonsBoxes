@@ -14,5 +14,11 @@ namespace DataTemplates.Pages
             InitializeComponent();
             BindingContext = App.RoomsViewModel;
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            MessagingCenter.Send<RoomDetailPage>(this, "MeetingTitleSetFocus");
+        }
     }
 }
