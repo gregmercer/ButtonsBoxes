@@ -15,6 +15,7 @@ namespace DataTemplates.ViewModels
 
         public RoomViewModel RoomViewModel { get; set; }
 
+        public TimeSlotFrame TimeSlotFrame { get; set; }
         public TimeSlotButton TimeSlotButton { get; set; }
         public TimeSlotBox TimeSlotBox { get; set; }
 

@@ -22,6 +22,7 @@ namespace DataTemplates.Pages
             {
                 if (arg == (int)BookRoomResults.Success)
                 {
+                    App.Current.MainPage.DisplayAlert("Room Booking", "Your room has been booked.", "OK");
                     App.Current.MainPage.Navigation.PopAsync();
                 }
             });
